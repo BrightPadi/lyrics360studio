@@ -1,0 +1,234 @@
+<html>
+<head>
+    <title>LYRICS360 STUDIO - Music</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>🎵 LYRICS360 STUDIO</h1>
+        <p>Lyrics You Can Feel</p>
+    </header>
+
+    <nav>
+        <a href="INDEX.HTML">Home</a>
+        <a href="MUSIC.HTML">Music</a>
+        <a href="SIGNUP.HTML">Sign Up</a>
+        <a href="SIGNIN.HTML">Sign In</a>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <h2>Discover Music 🎶</h2>
+            <p>Find your favourite songs and enjoy the lyrics.</p>
+
+            <input
+                type="search"
+                id="searchBox"
+                placeholder="Search songs or artists..."
+                onkeyup="searchSongs()"
+            >
+        </section>
+
+        <section class="music-section">
+
+            <h2>Featured Songs</h2>
+
+            <div class="song-container">
+
+                <div class="song">
+                    <img src="https://placehold.co/300x180/07162b/00baff?text=Song+One"
+                         alt="Song One cover">
+
+                    <h3>Song One</h3>
+                    <p>Artist: Artist One</p>
+
+                    <a href="https://www.youtube.com/@lyrics360_Studio"
+                       target="_blank">
+                        ▶ Watch Video
+                    </a>
+                </div>
+
+                <div class="song">
+                    <img src="https://placehold.co/300x180/07162b/00baff?text=Song+Two"
+                         alt="Song Two cover">
+
+                    <h3>Song Two</h3>
+                    <p>Artist: Artist Two</p>
+
+                    <a href="https://www.youtube.com/@lyrics360_Studio"
+                       target="_blank">
+                        ▶ Watch Video
+                    </a>
+                </div>
+
+                <div class="song">
+                    <img src="https://placehold.co/300x180/07162b/00baff?text=Song+Three"
+                         alt="Song Three cover">
+
+                    <h3>Song Three</h3>
+                    <p>Artist: Artist Three</p>
+
+                    <a href="https://www.youtube.com/@lyrics360_Studio"
+                       target="_blank">
+                        ▶ Watch Video
+                    </a>
+                </div>
+
+            </div>
+
+            <p id="noResults" style="display:none;">
+                No songs found.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 LYRICS360 STUDIO</p>
+        <p>Lyrics You Can Feel 🎵</p>
+    </footer>
+
+    <style>
+
+        body {
+            background: #020817;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            background: #07162b;
+            padding: 20px;
+        }
+
+        header h1 {
+            color: #00baff;
+        }
+
+        nav {
+            background: #0b1d38;
+            padding: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        nav a:hover {
+            color: #00baff;
+        }
+
+        .hero {
+            padding: 45px 15px;
+            background: linear-gradient(135deg, #07162b, #102d60);
+        }
+
+        .hero h2,
+        .music-section h2 {
+            color: #00baff;
+        }
+
+        input {
+            width: 80%;
+            max-width: 400px;
+            padding: 13px;
+            border: 1px solid #00baff;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .music-section {
+            padding: 35px 15px;
+        }
+
+        .song-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .song {
+            background: #07162b;
+            border: 1px solid #123e64;
+            border-radius: 12px;
+            padding: 15px;
+            width: 280px;
+            box-sizing: border-box;
+        }
+
+        .song img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .song h3 {
+            color: #00baff;
+        }
+
+        .song a {
+            display: inline-block;
+            background: #00baff;
+            color: #020817;
+            padding: 10px 15px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .song a:hover {
+            background: white;
+        }
+
+        footer {
+            background: #01040c;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .song {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+    </style>
+
+    <script>
+        function searchSongs() {
+            let input = document.getElementById("searchBox")
+                .value.toLowerCase();
+
+            let songs = document.getElementsByClassName("song");
+            let found = 0;
+
+            for (let i = 0; i < songs.length; i++) {
+                let songInfo = songs[i].innerText.toLowerCase();
+
+                if (songInfo.includes(input)) {
+                    songs[i].style.display = "block";
+                    found++;
+                } else {
+                    songs[i].style.display = "none";
+                }
+            }
+
+            document.getElementById("noResults").style.display =
+                found === 0 ? "block" : "none";
+        }
+    </script>
+
+</body>
+</html>
